@@ -10,11 +10,12 @@ Promptzin é um projeto de portfólio focado em ser uma biblioteca de prompts pa
 
 > A aplicação lida com dados reais de usuários. Por respeito à
 > privacidade e para evitar exposição de vulnerabilidades,
-> o código é privado. Recrutadores podem solicitar acesso via email: gustavomachadoalbuquerque@gmail.com
+> o código é privado. Recrutadores podem solicitar acesso via email: gustavoalbuquerquedev@gmail.com
+
 
 ## Features
 
-- Busca de prompts por texto
+- Busca de prompts por (Tags, Modelo)
 - Copiar prompt com um clique
 - Publicação de prompt + imagem (com moderação)
 - Salvar prompts de outros usuários
@@ -30,8 +31,9 @@ Promptzin é um projeto de portfólio focado em ser uma biblioteca de prompts pa
 - **Shadcn + Tailwind** (UI)
 - **React Masonry CSS** (Layout masonry)
 - **Zod + React Hook Form** (Validação de dados e formulários)
+- **tanstack Query** (Busca e cache de dados)
 - **Prisma** (ORM)
-- **Supabase** (Banco de dados — PostgreSQL)
+- **Supabase** (Banco de dados - PostgreSQL)
 - **Sharp** (Compressão de imagens)
 - **Upstash** (Redis/Rate Limit)
 - **Cloudflare** (Proteção contra bots/DDoS)
@@ -49,9 +51,9 @@ O uso do **React** também está bem aproveitado, criando hooks e memoizando tud
 
 ### Segurança
 
-Toda a segurança da aplicação está sendo mantida pelo **Better Auth** — é ele que valida todas as rotas da aplicação e da API, a **Role** do usuário, e também controla a sessão. Todas as páginas privadas são validadas no lado do servidor, antes de sequer chegarem ao cliente.
+Toda a segurança da aplicação está sendo mantida pelo **Better Auth**, é ele que valida todas as rotas da aplicação e da API, a **Role** do usuário, e também controla a sessão. Todas as páginas privadas são validadas no lado do servidor, antes de sequer chegarem ao cliente.
 
-A aplicação possui uma página **admin** (que modera usuários e valida prompts antes de ficarem públicos). Optei por fazer cada ação passar por uma **Server Action**, dificultando qualquer possível tentativa de exploração em um endpoint de admin. Todas as rotas, e principalmente cada ação de admin, são validadas por um **Rate Limit**, com base no caso de uso de um usuário comum e na importância da ação — por exemplo, ações muito críticas e que não são frequentemente repetidas em um curto intervalo de tempo, como a exclusão de conta.
+A aplicação possui uma página **admin** (que modera usuários e valida prompts antes de ficarem públicos). Optei por fazer cada ação passar por uma **Server Action**, dificultando qualquer possível tentativa de exploração em um endpoint de admin. Todas as rotas, e principalmente cada ação de admin, são validadas por um **Rate Limit**, com base no caso de uso de um usuário comum e na importância da ação, por exemplo, ações muito críticas e que não são frequentemente repetidas em um curto intervalo de tempo, como a exclusão de conta.
 
 ### Banco de dados
 
@@ -90,4 +92,4 @@ Dessa forma, aumentei exponencialmente a capacidade de armazenamento da aplicaç
 
 ### Cache no lado do cliente
 
-Com um alto volume de requisições em toda a aplicação, optei pelo uso do **React Query** para cachear os dados no lado do cliente, minimizando ao máximo as requisições feitas ao banco de dados.
+Com um alto volume de requisições em toda aplicação, optei pelo uso do **React Query** para cachear os dados no lado do cliente, minimizando ao máximo as requisições feitas ao banco de dados.
